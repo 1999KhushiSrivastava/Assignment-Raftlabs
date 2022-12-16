@@ -3,14 +3,9 @@ const CSV = require('csv-parser');
 const csvtojson = require("csvtojson"); 
 
 
-const readCSVFile =(file) => {
-    let myPromise=new Promise((resolve,rejects)=>{
-        csvtojson().fromFile(file)
-        .then((result)=>req.result=result)
-        .catch((err)=>console.log(err))
-    })
-
-
-  
+const readCSVFile =async(file) => {
+    let result = await csvtojson().fromFile(file)
+    return result 
 };
 module.exports= {readCSVFile}
+
